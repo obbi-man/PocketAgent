@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/pa_bg"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:id="@+id/chatLayer"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Верхняя панель: ✦ PocketAgent · [Vikhr 0.5B ⌄] · (профиль) -->
+        <LinearLayout
+            android:id="@+id/topBar"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:minHeight="68dp" android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingStart="18dp" android:paddingEnd="14dp">
+            <ImageView android:layout_width="30dp" android:layout_height="30dp"
+                android:src="@drawable/ic_sparkle" android:importantForAccessibility="no"/>
+            <TextView android:id="@+id/appTitle"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginStart="8dp" android:text="PocketAgent"
+                android:textSize="22sp" android:textStyle="bold" android:textColor="@color/pa_text"
+                android:maxLines="1" android:ellipsize="end"/>
+            <Space android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" android:minWidth="8dp"/>
+            <TextView android:id="@+id/modelPill"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:minHeight="44dp" android:gravity="center_vertical"
+                android:paddingStart="16dp" android:paddingEnd="10dp"
+                android:background="@drawable/bg_pill" android:foreground="?attr/selectableItemBackground"
+                android:drawableEnd="@drawable/ic_expand" android:drawablePadding="2dp"
+                android:text="Vikhr 0.5B" android:textSize="16sp" android:textColor="@color/pa_text"
+                android:fontFamily="sans-serif-medium" android:maxLines="1"
+                android:clickable="true" android:focusable="true" android:contentDescription="Выбрать модель"/>
+            <ImageView android:id="@+id/profileBtn"
+                android:layout_width="48dp" android:layout_height="48dp" android:layout_marginStart="10dp"
+                android:padding="11dp" android:src="@drawable/ic_person"
+                android:background="@drawable/bg_round" android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true" android:focusable="true" android:contentDescription="Меню и настройки"/>
+        </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/loadingPanel"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginStart="14dp" android:layout_marginEnd="14dp" android:layout_marginBottom="6dp"
+            android:visibility="gone"
+            app:cardCornerRadius="22dp" app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/pa_card" app:strokeColor="@color/pa_border" app:strokeWidth="1dp">
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="16dp">
+                <TextView android:id="@+id/loadingText"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="Подготовка модели…" android:textSize="18sp"
+                    android:textColor="@color/pa_text"/>
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/progress"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp" android:max="1000" android:indeterminate="true"
+                    app:indicatorColor="@color/pa_purple" app:trackColor="@color/pa_card2"
+                    app:trackCornerRadius="4dp" app:trackThickness="8dp"/>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/retryButton" style="@style/PA.BigButton"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp" android:visibility="gone" android:text="Скачать модель"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <FrameLayout
+            android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list"
+                android:layout_width="match_parent" android:layout_height="match_parent"
+                android:clipToPadding="false" android:paddingStart="14dp" android:paddingEnd="14dp"
+                android:paddingTop="6dp" android:paddingBottom="6dp"/>
+
+            <!-- Пустой экран -->
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/hero"
+                android:layout_width="match_parent" android:layout_height="match_parent"
+                android:fillViewport="true" android:scrollbars="none">
+                <LinearLayout
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:gravity="center_horizontal"
+                    android:paddingStart="18dp" android:paddingEnd="18dp" android:paddingTop="10dp" android:paddingBottom="12dp">
+                    <Space android:layout_width="1dp" android:layout_height="0dp" android:layout_weight="1" android:minHeight="4dp"/>
+                    <TextView android:id="@+id/statusChip"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:minHeight="38dp" android:gravity="center"
+                        android:paddingStart="16dp" android:paddingEnd="16dp" android:paddingTop="6dp" android:paddingBottom="6dp"
+                        android:background="@drawable/bg_pill"
+                        android:text="● Офлайн-режим" android:textSize="15sp" android:textColor="@color/pa_text"
+                        android:fontFamily="sans-serif-medium"/>
+                    <TextView android:id="@+id/heroHello"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:layout_marginTop="22dp" android:text="Привет!"
+                        android:textSize="46sp" android:textStyle="bold" android:textColor="@color/pa_purple"
+                        android:includeFontPadding="false" android:letterSpacing="-0.01"/>
+                    <TextView android:id="@+id/heroAsk"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp" android:gravity="center" android:text="Чем я могу помочь?"
+                        android:textSize="30sp" android:textStyle="bold" android:textColor="@color/pa_text"
+                        android:letterSpacing="-0.01"/>
+                    <TextView android:id="@+id/heroSub"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp" android:maxWidth="380dp" android:gravity="center"
+                        android:text="Ваш персональный ИИ работает локально на телефоне — без серверов, связи и задержек."
+                        android:textSize="18sp" android:textColor="@color/pa_sub" android:lineSpacingMultiplier="1.15"/>
+                    <LinearLayout
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:layout_marginTop="26dp" android:orientation="horizontal">
+                        <include android:id="@+id/cardAlarm" layout="@layout/hero_card"/>
+                        <Space android:layout_width="12dp" android:layout_height="1dp"/>
+                        <include android:id="@+id/cardTimer" layout="@layout/hero_card"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp" android:orientation="horizontal">
+                        <include android:id="@+id/cardRemind" layout="@layout/hero_card"/>
+                        <Space android:layout_width="12dp" android:layout_height="1dp"/>
+                        <include android:id="@+id/cardNote" layout="@layout/hero_card"/>
+                    </LinearLayout>
+                    <Space android:layout_width="1dp" android:layout_height="0dp" android:layout_weight="1" android:minHeight="4dp"/>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </FrameLayout>
+
+        <!-- Поле ввода: ＋ | текст | 🎤 | (волна → живой режим / отправить / стоп) -->
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginStart="14dp" android:layout_marginEnd="14dp" android:layout_marginTop="6dp"
+            android:minHeight="66dp" android:orientation="horizontal" android:gravity="center_vertical"
+            android:padding="6dp" android:background="@drawable/bg_input">
+            <ImageView android:id="@+id/plus" style="@style/PA.IconBtn"
+                android:src="@drawable/ic_add" android:contentDescription="Ещё: живой режим, списки, будильники"/>
+            <EditText
+                android:id="@+id/input"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:minHeight="52dp" android:background="@null"
+                android:paddingStart="2dp" android:paddingEnd="2dp"
+                android:hint="Спросите что-нибудь…" android:textColorHint="@color/pa_sub" android:textColor="@color/pa_text"
+                android:maxLines="5" android:textSize="20sp"
+                android:inputType="textCapSentences|textMultiLine"/>
+            <ImageView android:id="@+id/mic" style="@style/PA.IconBtn"
+                android:src="@drawable/ic_mic" android:contentDescription="Голосовой ввод"/>
+            <ImageView android:id="@+id/send"
+                android:layout_width="54dp" android:layout_height="54dp" android:layout_marginStart="2dp"
+                android:padding="14dp" android:background="@drawable/bg_grad_circle"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_wave" android:clickable="true" android:focusable="true"
+                android:contentDescription="Живой режим"/>
+        </LinearLayout>
+        <TextView android:id="@+id/footer"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:gravity="center" android:paddingTop="8dp" android:paddingBottom="10dp"
+            android:text="🔒 100% на устройстве • Безопасно и конфиденциально"
+            android:textSize="14sp" android:textColor="@color/pa_sub"/>
+    </LinearLayout>
+
+    <!-- Живой режим: на весь экран, без рук -->
+    <LinearLayout
+        android:id="@+id/liveLayer"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:orientation="vertical" android:gravity="center_horizontal"
+        android:background="@color/pa_live_bg" android:paddingStart="20dp" android:paddingEnd="20dp" android:paddingBottom="20dp"
+        android:visibility="gone" android:clickable="true" android:focusable="true">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="68dp"
+            android:orientation="horizontal" android:gravity="center_vertical">
+            <ImageView android:layout_width="28dp" android:layout_height="28dp"
+                android:src="@drawable/ic_sparkle" android:importantForAccessibility="no"/>
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:layout_marginStart="8dp" android:text="Живой режим"
+                android:textSize="20sp" android:textStyle="bold" android:textColor="@color/pa_text"/>
+            <ImageView android:id="@+id/liveClose"
+                android:layout_width="48dp" android:layout_height="48dp" android:padding="12dp"
+                android:src="@drawable/ic_close" android:background="@drawable/bg_round"
+                android:clickable="true" android:focusable="true" android:contentDescription="Закрыть живой режим"/>
+        </LinearLayout>
+        <TextView android:id="@+id/liveStatus"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" android:gravity="center"
+            android:text="Слушаю…" android:textSize="30sp" android:textStyle="bold" android:textColor="@color/pa_text"/>
+        <ru.pocketagent.OrbView android:id="@+id/orb"
+            android:layout_width="280dp" android:layout_height="280dp" android:layout_marginTop="4dp"/>
+        <TextView android:id="@+id/liveHeard"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:gravity="center" android:textSize="22sp" android:textColor="@color/pa_sub" android:maxLines="3"/>
+        <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
+            android:layout_marginTop="12dp">
+            <TextView android:id="@+id/liveAnswer"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:gravity="center" android:textSize="26sp" android:textColor="@color/pa_text" android:lineSpacingMultiplier="1.15"/>
+        </ScrollView>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/liveAction"
+            android:layout_width="match_parent" android:layout_height="72dp"
+            android:visibility="gone" android:textSize="22sp" app:cornerRadius="36dp"
+            app:backgroundTint="@color/pa_card2" android:textColor="@color/pa_text"
+            app:strokeColor="@color/pa_border" app:strokeWidth="1dp"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/liveStop"
+            android:layout_width="match_parent" android:layout_height="92dp" android:layout_marginTop="12dp"
+            android:text="Стоп" android:textSize="30sp" android:textStyle="bold"
+            app:icon="@drawable/ic_stop" app:iconSize="34dp" app:iconGravity="textStart" app:iconPadding="12dp"
+            app:iconTint="#FFFFFF"
+            app:cornerRadius="46dp" app:backgroundTint="@color/pa_stop" android:textColor="#FFFFFF"
+            android:contentDescription="Остановить живой режим"/>
+    </LinearLayout>
+</FrameLayout>

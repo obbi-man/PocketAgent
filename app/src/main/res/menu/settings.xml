@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/m_tts" android:title="Озвучивать ответы на голосовые запросы" android:checkable="true"/>
+    <item android:id="@+id/m_tts_always" android:title="Всегда озвучивать (и набранный текст)" android:checkable="true"/>
+    <item android:id="@+id/m_web" android:title="Искать в интернете (для вопросов)" android:checkable="true"/>
+    <item android:id="@+id/m_agent" android:title="Режим агента (инструменты)" android:checkable="true"/>
+    <item android:id="@+id/m_debug" android:title="Технические детали (JSON)" android:checkable="true"/>
+    <item android:id="@+id/m_upd_auto" android:title="Проверять обновления раз в день" android:checkable="true"/>
+    <item android:id="@+id/m_upd_wifi" android:title="Обновления только по Wi-Fi" android:checkable="true"/>
+    <item android:id="@+id/m_mirror" android:title="Дублировать заметки в…"/>
+    <item android:id="@+id/m_export" android:title="Экспорт всех заметок"/>
+    <item android:id="@+id/m_guide" android:title="Как сделать ассистентом"/>
+    <item android:id="@+id/m_assistant_old" android:title="Помощник по умолчанию (кратко)" android:visible="false"/>
+    <item android:id="@+id/m_font" android:title="Размер текста"/>
+    <item android:id="@+id/m_theme" android:title="Тема: тёмная / светлая"/>
+    <item android:id="@+id/m_models" android:title="Выбрать модель"/>
+    <item android:id="@+id/m_assistant" android:title="Сделать помощником по умолчанию"/>
+    <item android:id="@+id/m_import" android:title="Импорт модели (.gguf) из памяти"/>
+    <item android:id="@+id/m_builtin" android:title="Не использовать импортированную"/>
+</menu>

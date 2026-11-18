@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+    android:orientation="vertical" android:padding="16dp" android:minHeight="138dp"
+    android:background="@drawable/bg_card" android:foreground="?attr/selectableItemBackground"
+    android:clickable="true" android:focusable="true">
+    <ImageView android:id="@+id/hcIcon"
+        android:layout_width="46dp" android:layout_height="46dp" android:padding="11dp"
+        android:background="@drawable/bg_icon" android:importantForAccessibility="no"/>
+    <Space android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:minHeight="12dp"/>
+    <TextView android:id="@+id/hcTitle"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:textSize="18sp" android:textStyle="bold" android:textColor="@color/pa_text"
+        android:fontFamily="sans-serif-medium" android:lineSpacingMultiplier="1.05"/>
+    <TextView android:id="@+id/hcLabel"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="4dp" android:textSize="15sp" android:textColor="@color/pa_sub"/>
+</LinearLayout>

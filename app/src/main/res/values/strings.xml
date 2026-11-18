@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">PocketAgent</string>
+    <string name="sc_live">Живой режим</string>
+    <string name="sc_live_long">Живой режим (голосом)</string>
+    <string name="sc_lists">Напоминания</string>
+</resources>

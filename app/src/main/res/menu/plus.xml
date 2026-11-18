@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/m_file" android:title="Загрузить файл (PDF, DOCX, TXT…)"/>
+    <item android:id="@+id/m_live" android:title="Живой режим (без рук)"/>
+    <item android:id="@+id/m_time" android:title="Который час?"/>
+    <item android:id="@+id/m_alarms" android:title="Будильники"/>
+    <item android:id="@+id/m_lists" android:title="Напоминания и заметки"/>
+    <item android:id="@+id/m_import" android:title="Загрузить свою модель (.gguf)"/>
+</menu>

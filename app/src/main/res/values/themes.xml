@@ -1,0 +1,56 @@
+<resources>
+    <style name="Theme.PocketAgent" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/pa_primary</item>
+        <item name="colorOnPrimary">@color/pa_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/pa_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/pa_onPrimaryContainer</item>
+        <item name="colorSecondary">@color/pa_secondary</item>
+        <item name="colorOnSecondary">@color/pa_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/pa_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/pa_onSecondaryContainer</item>
+        <item name="colorTertiaryContainer">@color/pa_tertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/pa_onTertiaryContainer</item>
+        <item name="colorSurface">@color/pa_surface</item>
+        <item name="colorOnSurface">@color/pa_onSurface</item>
+        <item name="colorSurfaceVariant">@color/pa_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/pa_onSurfaceVariant</item>
+        <item name="colorSurfaceContainer">@color/pa_surfaceContainer</item>
+        <item name="colorSurfaceContainerLow">@color/pa_card</item>
+        <item name="colorSurfaceContainerHigh">@color/pa_surfaceContainerHigh</item>
+        <item name="colorSurfaceContainerHighest">@color/pa_surfaceContainerHigh</item>
+        <item name="colorOutline">@color/pa_outline</item>
+        <item name="android:colorBackground">@color/pa_bg</item>
+        <item name="android:windowBackground">@color/pa_bg</item>
+        <item name="android:statusBarColor">@color/pa_bg</item>
+        <item name="android:navigationBarColor">@color/pa_bg</item>
+        <item name="android:windowLightStatusBar">@bool/pa_light</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="chipStyle">@style/PA.Chip</item>
+        <item name="materialAlertDialogTheme">@style/PA.Dialog</item>
+        <item name="alertDialogTheme">@style/PA.Dialog</item>
+        <item name="popupMenuBackground">@drawable/bg_popup</item>
+    </style>
+    <style name="PA.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorSurface">@color/pa_card</item>
+        <item name="colorSurfaceContainerHigh">@color/pa_card</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="PA.Chip" parent="Widget.Material3.Chip.Assist">
+        <item name="android:textSize">18sp</item>
+        <item name="chipMinHeight">52dp</item>
+    </style>
+    <style name="PA.BigButton" parent="Widget.Material3.Button">
+        <item name="android:textSize">22sp</item>
+        <item name="android:minHeight">64dp</item>
+    </style>
+    <style name="PA.IconBtn" parent="">
+        <item name="android:layout_width">46dp</item>
+        <item name="android:layout_height">52dp</item>
+        <item name="android:padding">11dp</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+</resources>

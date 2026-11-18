@@ -1,0 +1,12 @@
+.gradle/
+.kotlin/
+build/
+.cxx/
+local.properties
+*.keystore
+*.jks
+keystore.properties
+*.gguf
+*.apk
+*.apk.part*
+app/src/fullvikhr/

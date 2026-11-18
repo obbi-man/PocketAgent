@@ -1,0 +1,36 @@
+<resources>
+    <!-- Светлая тема (по выбору). Тёмная — по умолчанию, см. values-night -->
+    <color name="pa_bg">#F6F6F9</color>
+    <color name="pa_card">#FFFFFF</color>
+    <color name="pa_card2">#EFEFF4</color>
+    <color name="pa_border">#E2E2EA</color>
+    <color name="pa_text">#111114</color>
+    <color name="pa_sub">#5C5C68</color>
+    <color name="pa_accent">#7C3AED</color>
+    <color name="pa_purple">#8B5CF6</color>
+    <color name="pa_pink">#EC4899</color>
+    <color name="pa_blue">#3B82F6</color>
+    <color name="pa_green">#16A34A</color>
+    <color name="pa_user1">#E7DEFF</color>
+    <color name="pa_user2">#FADDEC</color>
+    <color name="pa_stop">#E53935</color>
+
+    <color name="pa_primary">@color/pa_accent</color>
+    <color name="pa_onPrimary">#FFFFFF</color>
+    <color name="pa_primaryContainer">@color/pa_user1</color>
+    <color name="pa_onPrimaryContainer">@color/pa_text</color>
+    <color name="pa_secondary">@color/pa_pink</color>
+    <color name="pa_onSecondary">#FFFFFF</color>
+    <color name="pa_secondaryContainer">@color/pa_card2</color>
+    <color name="pa_onSecondaryContainer">@color/pa_text</color>
+    <color name="pa_tertiaryContainer">@color/pa_card2</color>
+    <color name="pa_onTertiaryContainer">@color/pa_text</color>
+    <color name="pa_surface">@color/pa_bg</color>
+    <color name="pa_onSurface">@color/pa_text</color>
+    <color name="pa_surfaceVariant">@color/pa_card2</color>
+    <color name="pa_onSurfaceVariant">@color/pa_sub</color>
+    <color name="pa_surfaceContainer">@color/pa_card</color>
+    <color name="pa_surfaceContainerHigh">@color/pa_card2</color>
+    <color name="pa_outline">#C4C4CE</color>
+    <color name="pa_live_bg">@color/pa_bg</color>
+</resources>

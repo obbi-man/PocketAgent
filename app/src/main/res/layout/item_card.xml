@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_marginTop="6dp" android:layout_marginBottom="6dp" android:layout_marginEnd="28dp"
+    app:cardCornerRadius="24dp" app:cardElevation="0dp"
+    app:cardBackgroundColor="@color/pa_card" app:strokeColor="@color/pa_border" app:strokeWidth="1dp">
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="16dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical">
+            <FrameLayout android:layout_width="50dp" android:layout_height="50dp"
+                android:layout_marginEnd="14dp" android:background="@drawable/bg_icon">
+                <ImageView android:id="@+id/cardIconImg"
+                    android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:padding="12dp" android:visibility="gone" android:importantForAccessibility="no"/>
+                <TextView android:id="@+id/cardIcon"
+                    android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:gravity="center" android:textSize="24sp"/>
+            </FrameLayout>
+            <TextView android:id="@+id/cardTitle"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:textSize="21sp" android:textStyle="bold" android:textColor="@color/pa_text"/>
+        </LinearLayout>
+        <TextView android:id="@+id/cardBody"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" android:textSize="19sp" android:textColor="@color/pa_text"
+            android:lineSpacingMultiplier="1.1"/>
+        <TextView android:id="@+id/cardDebug"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" android:textSize="13sp" android:fontFamily="monospace"
+            android:visibility="gone" android:textColor="@color/pa_sub"/>
+        <com.google.android.material.chip.ChipGroup android:id="@+id/cardActions"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" app:chipSpacingHorizontal="8dp" app:chipSpacingVertical="0dp"/>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

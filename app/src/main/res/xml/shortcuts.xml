@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut android:shortcutId="live" android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/sc_live" android:shortcutLongLabel="@string/sc_live_long">
+        <intent android:action="ru.pocketagent.LIVE"
+            android:targetPackage="ru.pocketagent" android:targetClass="ru.pocketagent.MainActivity"/>
+    </shortcut>
+    <shortcut android:shortcutId="lists" android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/sc_lists" android:shortcutLongLabel="@string/sc_lists">
+        <intent android:action="android.intent.action.VIEW"
+            android:targetPackage="ru.pocketagent" android:targetClass="ru.pocketagent.ListsActivity"/>
+    </shortcut>
+</shortcuts>

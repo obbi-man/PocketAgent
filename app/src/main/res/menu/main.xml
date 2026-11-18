@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/m_memory" android:title="Что я о вас знаю"/>
+    <item android:id="@+id/m_lists" android:title="Напоминания и заметки"/>
+    <item android:id="@+id/m_alarms" android:title="Будильники"/>
+    <item android:id="@+id/m_live" android:title="Живой режим"/>
+    <item android:id="@+id/m_settings" android:title="Настройки"/>
+    <item android:id="@+id/m_guide" android:title="Как сделать ассистентом"/>
+    <item android:id="@+id/m_update" android:title="Проверить обновления"/>
+    <item android:id="@+id/m_clear" android:title="Очистить чат"/>
+    <item android:id="@+id/m_legal" android:title="Приватность и лицензии"/>
+    <item android:id="@+id/m_about" android:title="О приложении"/>
+</menu>
