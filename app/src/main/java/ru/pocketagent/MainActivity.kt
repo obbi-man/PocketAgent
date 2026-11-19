@@ -1034,6 +1034,7 @@ class MainActivity : AppCompatActivity() {
     private fun showMainMenu(anchor: View) {
         val pm = PopupMenu(this, anchor)
         pm.menuInflater.inflate(R.menu.main, pm.menu)
+        pm.menu.findItem(R.id.m_update)?.isVisible = Updater.enabled()
         pm.setOnMenuItemClickListener { onOptionsItemSelected(it) }
         pm.show()
     }
@@ -1156,6 +1157,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main, menu)
+        menu.findItem(R.id.m_update)?.isVisible = Updater.enabled()
         menu.findItem(R.id.m_agent).isChecked = agent.agentMode
         menu.findItem(R.id.m_tts).isChecked = Prefs.tts(this)
         menu.findItem(R.id.m_tts_always).isChecked = Prefs.ttsAlways(this)
@@ -1239,8 +1241,13 @@ class MainActivity : AppCompatActivity() {
             R.id.m_legal -> {
                 val text = try { resources.openRawResource(R.raw.licenses).bufferedReader().readText() } catch (t: Throwable) { t.toString() }
                 val tv = TextView(this).apply { this.text = text; textSize = 15f; setTextIsSelectable(true); setPadding(40, 20, 40, 20) }
-                com.google.android.material.dialog.MaterialAlertDialogBuilder(this).setTitle("Приватность и лицензии")
-                    .setView(ScrollView(this).apply { addView(tv) }).setPositiveButton("OK", null).show()
+                val b = com.google.android.material.dialog.MaterialAlertDialogBuilder(this).setTitle("Приватность и лицензии")
+                    .setView(ScrollView(this).apply { addView(tv) }).setPositiveButton("OK", null)
+                val url = BuildConfig.PRIVACY_POLICY_URL.trim()
+                if (url.isNotEmpty()) b.setNeutralButton("Политика в браузере") { _, _ ->
+                    try { startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url))) } catch (_: Exception) {}
+                }
+                b.show()
             }
             R.id.m_builtin -> {
                 if (busy) return true

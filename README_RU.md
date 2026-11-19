@@ -26,3 +26,21 @@ export ANDROID_HOME=~/Android/Sdk   # нужны platform 35, build-tools 35, ND
 ./gradlew assembleRelease           # app/build/outputs/apk/release/app-release.apk (подпись: положите свой ключ в корень проекта и заполните keystore.properties по образцу keystore.properties.example; без них release подписывается debug-ключом)
 ./gradlew testReleaseUnitTest       # тесты логики агента
 ```
+
+## Политика конфиденциальности
+
+https://obbi-man.github.io/PocketAgent/
+
+Обращения: https://github.com/obbi-man/PocketAgent/issues
+
+Сторонние лицензии: [THIRD_PARTY.md](THIRD_PARTY.md). В приложении: меню → «Приватность и лицензии».
+
+## Сборка для RuStore
+
+Автообновление с Google Диска в магазинную сборку не входит:
+
+```
+./gradlew assembleRelease -Plite -Prustore
+```
+
+Обычные команды `assembleRelease` и `assembleRelease -Plite` не меняются.

@@ -47,9 +47,13 @@ android {
     defaultConfig.buildConfigField("boolean", "LITE", lite.toString())
     // Манифест обновлений (update.json на Google Диске; id файла не меняется — содержимое обновляется на месте).
     // -PupdateUrl= (пусто) — сборка без автообновления.
-    val updateUrl = (project.findProperty("updateUrl") as String?) ?: "https://drive.google.com/uc?export=download&id=1Ndu-3ihhgLO_xJYRdksAKHvlE75TjJxj"
+    // -Prustore — то же + без REQUEST_INSTALL_PACKAGES (сборка для магазина; обычная не меняется).
+    val rustore = project.hasProperty("rustore")
+    val updateUrl = if (rustore) "" else ((project.findProperty("updateUrl") as String?) ?: "https://drive.google.com/uc?export=download&id=1Ndu-3ihhgLO_xJYRdksAKHvlE75TjJxj")
     defaultConfig.manifestPlaceholders["netcfg"] = if (findProperty("localUpdateTest") != null) "@xml/net_localtest" else "@xml/net_default"
+    defaultConfig.manifestPlaceholders["installPermission"] = if (updateUrl.isNotBlank()) "android.permission.REQUEST_INSTALL_PACKAGES" else "android.permission.VIBRATE"
     defaultConfig.buildConfigField("String", "UPDATE_MANIFEST_URL", "\"$updateUrl\"")
+    defaultConfig.buildConfigField("String", "PRIVACY_POLICY_URL", "\"https://obbi-man.github.io/PocketAgent/\"")
     buildFeatures { buildConfig = true }
 
     // Модель хранится в assets без сжатия (быстрое копирование, без распаковки zip)
